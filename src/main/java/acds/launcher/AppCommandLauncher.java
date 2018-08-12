@@ -64,6 +64,7 @@ public class AppCommandLauncher implements AppLauncher {
 	
 	public void runProcess(Map<String,String> commandMap) throws IOException {
 		
+	
 		StringBuffer arguments = new StringBuffer();
 		StringBuffer commandLine = new StringBuffer();
 		
@@ -76,15 +77,19 @@ public class AppCommandLauncher implements AppLauncher {
 				} 
 				else {
 					String type = appConfig.getString(key + ".type") ;
-				
-					if ( "--".equals(type)) {
 					
+					if ( "--".equals(type)) {
 						arguments.append("--");
 						arguments.append(key);
 						arguments.append("=");
 						arguments.append(value);
 						arguments.append(" ");
-					} else {
+					} 
+					else if ( "flag".equals(type)) {
+						arguments.append("-");
+						arguments.append(key);
+					} 
+					else {
 						arguments.append("-");
 						arguments.append(key);
 						arguments.append(" ");

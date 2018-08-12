@@ -9,7 +9,6 @@ public interface AppLauncher {
 		
 		public abstract void exit() ;
 		
-		
 		public abstract void setAppConfig(AppConfiguration appConfig);
 	
 }

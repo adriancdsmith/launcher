@@ -39,9 +39,15 @@ public class AppLauncherUI extends Application {
 	/**
 	 * Standard JFX Start Method.
 	 * 
-	 */
+	 */						arguments.append("--");
+		arguments.append(key);
+		arguments.append("=");
+		arguments.append(value);
+		arguments.append(" ");
+
 	public void start(Stage stage) throws Exception {
 		appConfig.init("launcher", getParameters().getRaw());		
+		appLauncher.setAppConfig(appConfig);
 		launchPanel.setLauncher(appLauncher);
 		launchPanel.setAppConfig(appConfig);
 		launchPanel.showMainPanel(stage);
